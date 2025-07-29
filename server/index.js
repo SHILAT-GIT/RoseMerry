@@ -7,8 +7,8 @@ app.use(express.json());
 const cors = require('cors');
 app.use(cors());
 
-const dotenv = require('dotenv');
-dotenv.config();
+const dotenv = require('dotenv');//ייבוא כמשתנה
+dotenv.config();//הפעלתו
 
 const connectdb = require('./db');
 
