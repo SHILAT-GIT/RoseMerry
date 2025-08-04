@@ -1,0 +1,34 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  text-align: center; /* מרכז את כל התוכן */
+}
+
+.main-header {
+  position: relative;
+  padding-top: 20px; /* רווח מעל התמונה */
+  background-color: black; /* רקע שחור */
+}
+
+.header-image {
+  display: inline-block; /* תמונה לא תתפרס על כל הרוחב */
+  height: auto;
+  width: auto;
+  max-width: 100%; /* כדי שלא תחרוג ברזולוציות קטנות */
+}
+
+/* שמה את הכפתורים בפינה השמאלית העליונה */
+.header-buttons {
+  position: absolute;
+  bottom: 20px;
+  left: 60px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.header-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
