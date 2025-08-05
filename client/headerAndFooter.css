@@ -24,7 +24,7 @@ body, html {
 .logo {
   display: block;
   margin: 0 auto;
-  height: 90px; /* אפשר לשנות לפי גובה רצוי */
+  height:130px; /* אפשר לשנות לפי גובה רצוי */
   object-fit: cover;
 }
 /* עטיפת הלוגו והכפתורים יחד */
@@ -54,6 +54,10 @@ body, html {
    width: 100%;
   font-weight: bold;
   cursor: pointer;
+}
+
+.header-buttons button:hover{
+  background-color: #fdedc5; /* זהב בהיר */
 }
 
 /* סרגל ניווט */

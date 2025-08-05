@@ -8,7 +8,7 @@ function loadHeader() {
   header.innerHTML = `
     <header class="main-header">
      <div class="top-header">
-      <img src="logo.jpg" alt="RoseMerry's logo" class="logo" />
+      <a href="homePage.html" class="logo"><img src="logo.jpg" alt="RoseMerry's logo" class="logo" /></a>
     
       <div class="header-buttons">
         <button>התחברות</button>
@@ -19,9 +19,9 @@ function loadHeader() {
 
       <nav class="nav-bar">
         <div class="nav-right">
-          <a href="#" class="nav-item">עמוד הבית</a>
+          <a href="homePage.html" class="nav-item">עמוד הבית</a>
           <span class="separator">|</span>
-          <a href="#" class="nav-item">אודותנו</a>
+          <a href="aboutPage.html" class="nav-item">אודותנו</a>
         </div>
 
          <div class="search-box">
@@ -30,9 +30,9 @@ function loadHeader() {
      </div>
 
         <div class="nav-left">
-          <a href="#" class="nav-icon">❤️</a>
+          <a href="favoritesPage.html" class="nav-icon">❤️</a>
           <span class="separator">|</span>
-          <a href="#" class="nav-icon">🛒</a>
+          <a href="cartPage.html" class="nav-icon">🛒</a>
         </div>
       </nav>
 
