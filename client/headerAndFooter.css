@@ -188,17 +188,37 @@ html {
   z-index: 1;
   /* ערך נמוך כדי לא להסתיר */
   /* transform: translateX(50px); */
+  max-width: 250px;
 
 }
 
 .search-box input {
   width: 100%;
   max-width: 250px;
-  padding: 6px 12px;
+    padding: 6px 40px 6px 12px; /* מקום לאייקון בצד שמאל */
   border: none;
   border-radius: 6px;
   font-size: 16px;
 }
+
+.search-button {
+  position: absolute;
+  left: 10px; /* האייקון בתוך התיבה בצד שמאל */
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  font-size: 16px;
+  padding: 0;
+}
+
+.search-button:hover {
+  color: #b8860b;
+}
+
+
 
 .tabs-bar {
   background-color: #f5f5f5;

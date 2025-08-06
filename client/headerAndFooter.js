@@ -24,10 +24,12 @@ function loadHeader() {
           <a href="aboutPage.html" class="nav-item">אודותנו</a>
         </div>
 
-         <div class="search-box">
+  <div class="search-box">
     <input type="text" id="searchInput" placeholder="חיפוש...">
-     <i class="fas fa-search search-icon"></i>
-     </div>
+     <button class="search-button" id="searchButton">
+       <i class="fas fa-search"></i>
+     </button>
+  </div>
 
         <div class="nav-left">
           <a href="favoritesPage.html" class="nav-icon">❤️</a>
