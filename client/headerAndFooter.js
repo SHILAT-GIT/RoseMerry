@@ -46,9 +46,9 @@ function loadHeader() {
   `;
 }
 
-function loadFooter(){
-    const footer=document.getElementById("footer");
-    footer.innerHTML=`
+function loadFooter() {
+  const footer = document.getElementById("footer");
+  footer.innerHTML = `
     <div class="footer-section">
       <h3>צרו איתנו קשר</h3>
       <div class="footer-icons">

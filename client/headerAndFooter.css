@@ -1,12 +1,14 @@
 /* עיצוב כללי */
-body, html {
-   height: 100%;
+body,
+html {
+  height: 100%;
   margin: 0;
   padding: 0;
   direction: rtl;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 /* קונטיינר של התוכן בין ההדר לפוטר */
@@ -28,9 +30,12 @@ body, html {
   object-fit: cover;
 }*/
 .logo {
-  height: 100%;        /* מתאים את עצמו לגובה של הסרגל */
-  width: auto;         /* שומר על פרופורציות */
-  object-fit: contain; /* לא ייחתך אלא יתכווץ בהתאם */
+  height: 100%;
+  /* מתאים את עצמו לגובה של הסרגל */
+  width: auto;
+  /* שומר על פרופורציות */
+  object-fit: contain;
+  /* לא ייחתך אלא יתכווץ בהתאם */
 }
 
 /* עטיפת הלוגו והכפתורים יחד */
@@ -45,13 +50,16 @@ body, html {
   justify-content: center;
   align-items: center;
   position: relative;
-  height: 15vh; /* גובה רספונסיבי לסרגל העליון */
+  height: 15vh;
+  /* גובה רספונסיבי לסרגל העליון */
   padding: 0 4vw;
   background-color: black;
 }
+
 /* הלוגו */
 .logo-container {
-  height: 100%; /* יתאים לגובה של הסרגל */
+  height: 100%;
+  /* יתאים לגובה של הסרגל */
   display: flex;
   align-items: center;
 }
@@ -70,14 +78,19 @@ body, html {
   left: 2vw;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem; /* ריווח יחסית נעים ורספונסיבי */
+  gap: 0.8rem;
+  /* ריווח יחסית נעים ורספונסיבי */
   align-items: flex-start;
-  max-width: 200px; /* לא יעברו את הרוחב הזה */
-  width: 6vw;       /* יתפסו 30% מרוחב המסך */
+  max-width: 200px;
+  /* לא יעברו את הרוחב הזה */
+  width: 6vw;
+  /* יתפסו 30% מרוחב המסך */
   box-sizing: border-box;
-  height: 100%; /* שווה לגובה של הסרגל */
+  height: 100%;
+  /* שווה לגובה של הסרגל */
   justify-content: center;
-  padding: 1.5rem 0;  /* רווח עליון ותחתון */
+  padding: 1.5rem 0;
+  /* רווח עליון ותחתון */
 
 }
 
@@ -97,14 +110,18 @@ body, html {
   background-color: white;
   color: black;
   border: none;
-  padding: 0.6em 0.6em; /* ריווח פנימי יחסית לגודל הפונט */
-  border-radius: 0.5em; /* עיגול פינות בגובה הפונט */
+  padding: 0.4em 0.6em;
+  /* ריווח פנימי יחסית לגודל הפונט */
+  border-radius: 0.5em;
+  /* עיגול פינות בגובה הפונט */
   width: 100%;
   font-weight: bold;
-  font-size: 1rem; /* גודל טקסט רספונסיבי */
+  font-size: 1rem;
+  /* גודל טקסט רספונסיבי */
   cursor: pointer;
 
-  flex: 1; /* מתחלקים שווה בשווה בגובה של הקונטיינר */
+  flex: 1;
+  /* מתחלקים שווה בשווה בגובה של הקונטיינר */
 
   display: flex;
   align-items: center;
@@ -115,19 +132,23 @@ body, html {
 }
 
 
-.header-buttons button:hover{
-  background-color: #fdedc5; /* זהב בהיר */
+.header-buttons button:hover {
+  background-color: #fdedc5;
+  /* זהב בהיר */
 }
 
 /* סרגל ניווט */
 .nav-bar {
-  background-color: #b8860b; /* זהב כהה */
+  background-color: #b8860b;
+  /* זהב כהה */
   display: flex;
-  justify-content: space-between; /* דוחף nav-right לימין ו-nav-left לשמאל */
+  justify-content: space-between;
+  /* דוחף nav-right לימין ו-nav-left לשמאל */
   align-items: center;
   padding: 5px 20px;
   flex-wrap: wrap;
-  direction: rtl; /* חשוב לשמור rtl כי האתר בעברית */
+  direction: rtl;
+  /* חשוב לשמור rtl כי האתר בעברית */
 }
 
 .nav-right {
@@ -160,10 +181,13 @@ body, html {
   flex-grow: 1;
   display: flex;
   justify-content: center;
-   pointer-events: auto; /* כבר ברירת מחדל, לוודא */
-  position: relative;    /* כדי לא להיתפס מעל קישורים אחרים */
-  z-index: 1;            /* ערך נמוך כדי לא להסתיר */
- /* transform: translateX(50px); */
+  pointer-events: auto;
+  /* כבר ברירת מחדל, לוודא */
+  position: relative;
+  /* כדי לא להיתפס מעל קישורים אחרים */
+  z-index: 1;
+  /* ערך נמוך כדי לא להסתיר */
+  /* transform: translateX(50px); */
 
 }
 
@@ -233,7 +257,8 @@ body, html {
 .footer-section h3 {
   margin-bottom: 10px;
   font-size: 18px;
-  color: #ffd700; /* זהב */
+  color: #ffd772;
+  /* זהב */
 }
 
 .footer-icons {
