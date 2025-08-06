@@ -8,7 +8,7 @@ function loadHeader() {
   header.innerHTML = `
     <header class="main-header">
      <div class="top-header">
-      <a href="homePage.html" class="logo"><img src="logo.jpg" alt="RoseMerry's logo" class="logo" /></a>
+      <a href="homePage.html" class="logo-container"><img src="logo.jpg" alt="RoseMerry's logo" class="logo" /></a>
     
       <div class="header-buttons">
         <button>התחברות</button>

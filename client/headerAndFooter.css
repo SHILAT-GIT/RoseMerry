@@ -21,40 +21,99 @@ body, html {
 }
 
 /* לוגו */
-.logo {
+/*.logo {
   display: block;
   margin: 0 auto;
-  height:130px; /* אפשר לשנות לפי גובה רצוי */
+  height:130px; 
   object-fit: cover;
+}*/
+.logo {
+  height: 100%;        /* מתאים את עצמו לגובה של הסרגל */
+  width: auto;         /* שומר על פרופורציות */
+  object-fit: contain; /* לא ייחתך אלא יתכווץ בהתאם */
 }
+
 /* עטיפת הלוגו והכפתורים יחד */
-.top-header {
+/*.top-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5px 20px;
+}*/
+.top-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 15vh; /* גובה רספונסיבי לסרגל העליון */
+  padding: 0 4vw;
+  background-color: black;
+}
+/* הלוגו */
+.logo-container {
+  height: 100%; /* יתאים לגובה של הסרגל */
+  display: flex;
+  align-items: center;
 }
 
 /* הכפתורים בצד שמאל */
-.header-buttons {
+/*.header-buttons {
   display: flex;
   flex-direction: column;
   gap: 5px;
   align-items: flex-start;
   margin-top: 10px;
+}*/
+
+.header-buttons {
+  position: absolute;
+  left: 2vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* ריווח יחסית נעים ורספונסיבי */
+  align-items: flex-start;
+  max-width: 200px; /* לא יעברו את הרוחב הזה */
+  width: 6vw;       /* יתפסו 30% מרוחב המסך */
+  box-sizing: border-box;
+  height: 100%; /* שווה לגובה של הסרגל */
+  justify-content: center;
+  padding: 1.5rem 0;  /* רווח עליון ותחתון */
+
 }
 
 
-.header-buttons button {
+
+/*.header-buttons button {
   background-color: white;
   color: black;
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
-   width: 100%;
+  width: 100%;
   font-weight: bold;
   cursor: pointer;
+}*/
+.header-buttons button {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 0.6em 0.6em; /* ריווח פנימי יחסית לגודל הפונט */
+  border-radius: 0.5em; /* עיגול פינות בגובה הפונט */
+  width: 100%;
+  font-weight: bold;
+  font-size: 1rem; /* גודל טקסט רספונסיבי */
+  cursor: pointer;
+
+  flex: 1; /* מתחלקים שווה בשווה בגובה של הקונטיינר */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  white-space: nowrap;
+  box-sizing: border-box;
 }
+
 
 .header-buttons button:hover{
   background-color: #fdedc5; /* זהב בהיר */
@@ -190,5 +249,5 @@ body, html {
 }
 
 .footer-icons i:hover {
-  color: #ffd700;
+  color: #f0daa1;
 }
