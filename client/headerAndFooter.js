@@ -39,9 +39,9 @@ function loadHeader() {
       </nav>
 
       <div class="tabs-bar">
-  <a href="#">חדש באתר </a>
-  <a href="#">בשמים לנשים <span class="arrow">▾</span></a>
-  <a href="#">בשמים לגברים <span class="arrow">▾</span></a>
+  <a href="newPage.html">חדש באתר </a>
+  <a href="femalePage.html">בשמים לנשים </a>
+  <a href="malePage.html">בשמים לגברים </a>
 </div>
 
     </header>
