@@ -6,6 +6,7 @@
       <meta charset="UTF-8" />
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+       <link rel="stylesheet" href="homePage.css" />
 
       <title>RoseMerry_homePage</title>
        <link rel="stylesheet" href="headerAndFooter.css"  />
@@ -14,16 +15,43 @@
   <body>
      <div id="header"></div>
 
-       <div id="main-content">
+      <div id="main-content">
            <!-- כל התוכן של הדף פה -->
-       </div>
+        <div class="carousel-wrapper">
+            <div class="carousel-section">
+              <div class="carousel" id="carousel-men"> 
+                <div class="carousel-track">
+                  <div><img src="perfumes/men1.jpg" alt="בשמים לגברים" /></div> 
+                  <div><img src="perfumes/men2.jpg" alt="בשמים לגברים" /></div> 
+                  <div><img src="perfumes/men3.webp" alt="בשמים לגברים" /></div> 
+                </div>
+                <button class="carousel-btn next">&#10095;</button>
+                <button class="carousel-btn prev">&#10094;</button>
+           </div>
+           <a href="malePage.html" class="carousel-label">בשמי גברים</a> 
+         </div>
+
+        <div class="carousel-section">
+          <div class="carousel" id="carousel-women"> 
+            <div class="carousel-track">
+              <div><img src="perfumes/women1.jpg" alt="בשמי נשים" /></div> 
+              <div><img src="perfumes/women2.jpg" alt="בשמי נשים" /></div> 
+              <div><img src="perfumes/women3.jpg" alt="בשמי נשים" /></div> 
+            </div>
+            <button class="carousel-btn next">&#10095;</button>
+            <button class="carousel-btn prev">&#10094;</button>
+          </div>
+          <a href="femalePage.html" class="carousel-label">בשמי נשים</a> 
+        </div>
+    </div>
+ </div>
   
      <div id="footer"></div>
 
 
  
    
-  <script src="headerAndFooter.js"></script>
+   <script src="headerAndFooter.js"></script>
     
-    </body>
+  </body>
 </html>
