@@ -10,6 +10,9 @@ html {
   flex-direction: column;
   text-align: center;
 }
+body{
+  padding-top: 25vh;
+}
 
 /* קונטיינר של התוכן בין ההדר לפוטר */
 #main-content {
@@ -17,6 +20,13 @@ html {
 }
 
 /* כותרת (header) */
+#header{
+  position: fixed;   /* מקבע את האלמנט */
+  top: 0;
+  z-index: 1000;     /* שיישב מעל כל שאר האלמנטים */
+  left: 0;           /* מתחיל מהצד השמאלי ביותר */
+  width: 100%;       /* שיתפרס על כל הרוחב */
+}
 .main-header {
   position: relative;
   background-color: black;
@@ -212,6 +222,11 @@ html {
   color: #888;
   font-size: 16px;
   padding: 0;
+
+  /*text-decoration: none; /* שלא יהיה קו תחתון */
+  /*display: flex;         /* ממרכז את האייקון */
+  /*align-items: center;
+  justify-content: center;*/
 }
 
 .search-button:hover {
