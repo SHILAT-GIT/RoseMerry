@@ -8,41 +8,41 @@ function loadHeader() {
   header.innerHTML = `
     <header class="main-header">
      <div class="top-header">
-      <a href="homePage.html" class="logo-container"><img src="logo1.jpg" alt="RoseMerry's logo" class="logo" /></a>
+      <a href="../pages/homePage.html" class="logo-container"><img src="../images/logo1.jpg" alt="RoseMerry's logo" class="logo" /></a>
     
       <div class="header-buttons">
         <button>התחברות</button>
         <button>הרשמה</button>
       </div>
-       </div>
+     </div>
 
 
       <nav class="nav-bar">
         <div class="nav-right">
-          <a href="homePage.html" class="nav-item">עמוד הבית</a>
+          <a href="../pages/homePage.html" class="nav-item">עמוד הבית</a>
           <span class="separator">|</span>
-          <a href="aboutPage.html" class="nav-item">אודותנו</a>
+          <a href="../pages/aboutPage.html" class="nav-item">אודותנו</a>
         </div>
 
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="חיפוש...">
-     <button class="search-button" id="searchButton">
-       <i class="fas fa-search"></i>
-     </button>
-  </div>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="חיפוש...">
+           <button class="search-button" id="searchButton">
+             <i class="fas fa-search"></i>
+           </button>
+        </div>
 
         <div class="nav-left">
-          <a href="favoritesPage.html" class="nav-icon">❤️</a>
+          <a href="../pages/favoritesPage.html" class="nav-icon"><i class="fa-solid fa-heart" style="color: #f0f0f0; font-size: 20px;"></i></a>
           <span class="separator">|</span>
-          <a href="cartPage.html" class="nav-icon">🛒</a>
+          <a href="../pages/cartPage.html" class="nav-icon"><i class="fa-solid fa-cart-shopping" style="color: #f0f0f0; font-size: 20px;"></i></a>
         </div>
       </nav>
 
       <div class="tabs-bar">
-  <a href="newPage.html">חדש באתר </a>
-  <a href="femalePage.html">בשמים לנשים </a>
-  <a href="malePage.html">בשמים לגברים </a>
-</div>
+       <a href="../pages/newPage.html">חדש באתר </a>
+       <a href="../pages/femalePage.html">בשמים לנשים </a>
+       <a href="../pages/malePage.html">בשמים לגברים </a>
+     </div>
 
     </header>
   `;

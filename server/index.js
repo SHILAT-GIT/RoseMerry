@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // הגדרת נתיב לבית
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'client', 'homePage.html'));
+  res.sendFile(path.join(__dirname, '..', 'client', 'pages', 'homePage.html'));
 });
 
 //  ייבוא הראוטים
