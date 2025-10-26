@@ -23,18 +23,19 @@ function loadHeader() {
           <span class="separator">|</span>
           <a href="../pages/aboutPage.html" class="nav-item">אודותנו</a>
         </div>
-
-        <div class="search-box">
-          <input type="text" id="searchInput" placeholder="חיפוש...">
-           <button class="search-button" id="searchButton">
-             <i class="fas fa-search"></i>
-           </button>
-        </div>
-
         <div class="nav-left">
-          <a href="../pages/favoritesPage.html" class="nav-icon"><i class="fa-solid fa-heart" style="color: #f0f0f0; font-size: 20px;"></i></a>
-          <span class="separator">|</span>
-          <a href="../pages/cartPage.html" class="nav-icon"><i class="fa-solid fa-cart-shopping" style="color: #f0f0f0; font-size: 20px;"></i></a>
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="חיפוש...">
+             <button class="search-button" id="searchButton">
+               <i class="fas fa-search"></i>
+             </button>
+          </div>
+
+          <div class="nav-icon-div">
+            <a href="../pages/favoritesPage.html" class="nav-icon"><i class="fa-solid fa-heart" ></i></a>
+            <span class="separator">|</span>
+            <a href="../pages/cartPage.html" class="nav-icon"><i class="fa-solid fa-cart-shopping" ></i></a>
+          </div>
         </div>
       </nav>
 

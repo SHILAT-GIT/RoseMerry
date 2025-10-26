@@ -189,7 +189,6 @@ body{
 .search-box {
   flex-grow: 1;
   display: flex;
-  justify-content: flex-start;
   pointer-events: auto;
   /* כבר ברירת מחדל, לוודא */
   position: relative;
@@ -197,17 +196,19 @@ body{
   z-index: 1;
   /* ערך נמוך כדי לא להסתיר */
   /* transform: translateX(50px); */
-  max-width: 250px;
-
+  /*width: 400px;*/
+  margin-left: 2px;
 }
 
 .search-box input {
-  width: 100%;
-  max-width: 250px;
-    padding: 6px 40px 6px 12px; /* מקום לאייקון בצד שמאל */
+  width: 250px;
+ /* max-width: 250px;
+  /*padding: 6px 40px 6px 12px; /* מקום לאייקון בצד שמאל */
+  padding: 6px;
   border: none;
   border-radius: 6px;
   font-size: 16px;
+  background-color: #f7f7f7;
 }
 
 .search-button {
@@ -232,7 +233,19 @@ body{
   color: #b8860b;
 }
 
+/*אייקונים*/
+.nav-icon{
+  color: #f7f7f7;
+}
+/*דיב אייקונים*/
+.nav-icon-div{
+  margin-top: 6px;
+}
 
+.nav-icon:hover {
+  color: #fdeeca;
+  /* זהב בהיר */
+}
 
 .tabs-bar {
   background-color: #f5f5f5;
