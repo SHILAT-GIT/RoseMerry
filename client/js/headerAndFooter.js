@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   loadHeader();
   loadFooter();
+  initPopup();
 });
+
 
 function loadHeader() {
   const header = document.getElementById("header");
@@ -11,8 +13,8 @@ function loadHeader() {
       <a href="../pages/homePage.html" class="logo-container"><img src="../images/logo1.jpg" alt="RoseMerry's logo" class="logo" /></a>
     
       <div class="header-buttons">
-        <button>התחברות</button>
-        <button>הרשמה</button>
+        <button id="loginBtn" >התחברות</button>
+        <button id="signupBtn" >הרשמה</button>
       </div>
      </div>
 
@@ -68,4 +70,53 @@ function loadFooter() {
       </div>
     </div>
     `;
+}
+
+function initPopup(){
+  const popup=document.createElement("div");
+  popup.id="popup";
+  popup.classList.add("popup");
+  popup.innerHTML=`
+   <div class="popup-content">
+      <span class="close">&times;</span>
+      <div id="popup-text"></div>
+    </div>
+    `;
+    document.body.appendChild(popup);
+
+  const popupText = document.getElementById("popup-text");
+  const closeBtn = popup.querySelector(".close");
+
+  const popupContents = {
+    signup: `
+      <h2 class="popup-title">הרשמה</h2>
+      <input type="text" placeholder="שם משתמש"><br><br>
+      <input type="email" placeholder="אימייל"><br><br>
+      <input type="password" placeholder="סיסמה"><br><br>
+       <button class="submitBtn">שליחה</button>
+    `,
+    login: `
+      <h2 class="popup-title">התחברות</h2>
+      <input type="text" placeholder="שם משתמש"><br><br>
+      <input type="password" placeholder="סיסמה"><br><br>
+      <button class="submitBtn">התחברות</button>
+    `
+};
+
+function openPopup(type) {
+    popupText.innerHTML = popupContents[type] || "";
+    popup.style.display = "flex";
+  }
+
+  // מאזינים לכפתורים אחרי שה-header נטען
+  const signupBtn = document.getElementById("signupBtn");
+  const loginBtn = document.getElementById("loginBtn"); 
+  
+  signupBtn.addEventListener("click", () => openPopup("signup"));
+  loginBtn.addEventListener("click", () => openPopup("login"));
+
+  closeBtn.addEventListener("click", () => popup.style.display = "none");
+  window.addEventListener("click", (e) => {
+    if(e.target === popup) popup.style.display = "none";
+  });
 }
