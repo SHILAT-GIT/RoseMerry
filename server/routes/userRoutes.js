@@ -16,17 +16,21 @@ router.get('/users', async (_, res) => {
 // הרשמה
 router.post('/signup', async(req, res)=>{
 const {name, email, password}=req.body;
+
 try{
+    if (!name || !email || !password) {
+      return res.status(400).json({ error: "נא למלא את כל השדות" });
+    }
+
 const existingUser = await User.findOne({ email });
         if (existingUser) {
-            return res.status(400).json({ error: "משתמש קיים כבר" });
+            return res.status(400).json({ error: "כתובת האימייל כבר קיימת במערכת"});
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({
              name, 
              email, 
-             //phone, 
              password: hashedPassword
              });
         await newUser.save();
