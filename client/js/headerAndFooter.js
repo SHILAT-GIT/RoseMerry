@@ -96,7 +96,7 @@ function initPopup() {
     `,
     login: `
       <h2 class="popup-title">התחברות</h2>
-      <input type="text" placeholder="שם משתמש"><br><br>
+      <input type="email" placeholder="כתובת מייל"><br><br>
       <input type="password" placeholder="סיסמה"><br><br>
       <button class="submitBtn">התחברות</button>
     `
@@ -110,40 +110,49 @@ function initPopup() {
     submitButton.onclick = () => validateForm(type);
   }
 
-  function validateForm(type) {
-    const usernameInput = popup.querySelector('input[type="text"]');
-    const username = usernameInput?.value.trim() || "";
+ async function validateForm(type) {
+  const usernameInput = popup.querySelector('input[type="text"]');
+  const username = usernameInput?.value.trim() || "";
 
-    if (username === "") {
-      alert("נא להזין שם משתמש");
-      return;
-    }
+  const emailInput = popup.querySelector('input[type="email"]');
+  const email = emailInput?.value.trim() || "";
 
-    // אימייל נבדק רק בהרשמה
-    if (type === "signup") {
-      const emailInput = popup.querySelector('input[type="email"]');
-      const email = emailInput?.value.trim() || "";
-      if (email === "") {
-        alert("נא להזין כתובת מייל");
-        return;
-      }
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(email)) {
-        alert("כתובת האימייל אינה תקינה");
-        return;
-      }
-    }
+  const passwordInput = popup.querySelector('input[type="password"]');
+  const password = passwordInput?.value.trim() || "";
 
-    const passwordInput = popup.querySelector('input[type="password"]');
-    const password = passwordInput?.value.trim() || "";
-    if (password === "") {
-      alert("נא להזין סיסמה");
-      return;
-    }
-
-    alert("הפרטים נקלטו בהצלחה!");
-    popup.style.display = "none";
+  // בדיקות בסיסיות
+  if (type === "signup" && (!username || !email || !password)) {
+    alert("נא למלא את כל השדות");
+    return;
   }
+
+  if (type === "login" && (!email || !password)) {
+    alert("נא להזין מייל וסיסמה");
+    return;
+  }
+
+  const url = type === "signup" ? "/api/users/signup" : "/api/users/login";
+
+  const bodyData = type === "signup"
+    ? { name: username, email, password }  // שם המשתמש נשלח בתור name
+    : { email, password };
+
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(bodyData),
+    });
+
+    const data = await res.json();
+    alert(data.message || data.error); // מציג הודעה מהשרת
+
+    if (res.ok) popup.style.display = "none"; // סוגר את הפופ-אפ אם הצליח
+  } catch (err) {
+    alert("שגיאה בשרת, נסו שוב");
+  }
+}
+
 
   // מאזינים לכפתורים אחרי שה-header נטען
   const signupBtn = document.getElementById("signupBtn");
