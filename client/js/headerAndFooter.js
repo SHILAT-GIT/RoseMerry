@@ -4,20 +4,20 @@ document.addEventListener("DOMContentLoaded", () => {
   initPopup();
 });
 
-
 function loadHeader() {
   const header = document.getElementById("header");
   header.innerHTML = `
     <header class="main-header">
      <div class="top-header">
-      <a href="../pages/homePage.html" class="logo-container"><img src="../images/logo1.jpg" alt="RoseMerry's logo" class="logo" /></a>
+      <a href="../pages/homePage.html" class="logo-container">
+        <img src="../images/logo1.jpg" alt="RoseMerry's logo" class="logo" />
+      </a>
     
       <div class="header-buttons">
-        <button id="loginBtn" >התחברות</button>
-        <button id="signupBtn" >הרשמה</button>
+        <button id="loginBtn">התחברות</button>
+        <button id="signupBtn">הרשמה</button>
       </div>
      </div>
-
 
       <nav class="nav-bar">
         <div class="nav-right">
@@ -34,9 +34,9 @@ function loadHeader() {
           </div>
 
           <div class="nav-icon-div">
-            <a href="../pages/favoritesPage.html" class="nav-icon"><i class="fa-solid fa-heart" ></i></a>
+            <a href="../pages/favoritesPage.html" class="nav-icon"><i class="fa-solid fa-heart"></i></a>
             <span class="separator">|</span>
-            <a href="../pages/cartPage.html" class="nav-icon"><i class="fa-solid fa-cart-shopping" ></i></a>
+            <a href="../pages/cartPage.html" class="nav-icon"><i class="fa-solid fa-cart-shopping"></i></a>
           </div>
         </div>
       </nav>
@@ -46,7 +46,6 @@ function loadHeader() {
        <a href="../pages/femalePage.html">בשמים לנשים </a>
        <a href="../pages/malePage.html">בשמים לגברים </a>
      </div>
-
     </header>
   `;
 }
@@ -69,22 +68,22 @@ function loadFooter() {
         <i class="fab fa-tiktok"></i>
       </div>
     </div>
-    `;
+  `;
 }
 
-function initPopup(){
-  const popup=document.createElement("div");
-  popup.id="popup";
+function initPopup() {
+  const popup = document.createElement("div");
+  popup.id = "popup";
   popup.classList.add("popup");
-  popup.innerHTML=`
-   <div class="popup-content">
+  popup.innerHTML = `
+    <div class="popup-content">
       <span class="close">&times;</span>
-      <div id="popup-text"></div>
+      <div id="popup-body"></div>
     </div>
-    `;
-    document.body.appendChild(popup);
+  `;
+  document.body.appendChild(popup);
 
-  const popupText = document.getElementById("popup-text");
+  const popupBody = popup.querySelector("#popup-body");
   const closeBtn = popup.querySelector(".close");
 
   const popupContents = {
@@ -93,7 +92,7 @@ function initPopup(){
       <input type="text" placeholder="שם משתמש"><br><br>
       <input type="email" placeholder="אימייל"><br><br>
       <input type="password" placeholder="סיסמה"><br><br>
-       <button class="submitBtn">שליחה</button>
+      <button class="submitBtn">שליחה</button>
     `,
     login: `
       <h2 class="popup-title">התחברות</h2>
@@ -101,22 +100,60 @@ function initPopup(){
       <input type="password" placeholder="סיסמה"><br><br>
       <button class="submitBtn">התחברות</button>
     `
-};
+  };
 
-function openPopup(type) {
-    popupText.innerHTML = popupContents[type] || "";
+  function openPopup(type) {
+    popupBody.innerHTML = popupContents[type] || "";
     popup.style.display = "flex";
+
+    const submitButton = popupBody.querySelector(".submitBtn");
+    submitButton.onclick = () => validateForm(type);
+  }
+
+  function validateForm(type) {
+    const usernameInput = popup.querySelector('input[type="text"]');
+    const username = usernameInput?.value.trim() || "";
+
+    if (username === "") {
+      alert("נא להזין שם משתמש");
+      return;
+    }
+
+    // אימייל נבדק רק בהרשמה
+    if (type === "signup") {
+      const emailInput = popup.querySelector('input[type="email"]');
+      const email = emailInput?.value.trim() || "";
+      if (email === "") {
+        alert("נא להזין כתובת מייל");
+        return;
+      }
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        alert("כתובת האימייל אינה תקינה");
+        return;
+      }
+    }
+
+    const passwordInput = popup.querySelector('input[type="password"]');
+    const password = passwordInput?.value.trim() || "";
+    if (password === "") {
+      alert("נא להזין סיסמה");
+      return;
+    }
+
+    alert("הפרטים נקלטו בהצלחה!");
+    popup.style.display = "none";
   }
 
   // מאזינים לכפתורים אחרי שה-header נטען
   const signupBtn = document.getElementById("signupBtn");
-  const loginBtn = document.getElementById("loginBtn"); 
-  
+  const loginBtn = document.getElementById("loginBtn");
+
   signupBtn.addEventListener("click", () => openPopup("signup"));
   loginBtn.addEventListener("click", () => openPopup("login"));
 
-  closeBtn.addEventListener("click", () => popup.style.display = "none");
+  closeBtn.addEventListener("click", () => (popup.style.display = "none"));
   window.addEventListener("click", (e) => {
-    if(e.target === popup) popup.style.display = "none";
+    if (e.target === popup) popup.style.display = "none";
   });
 }
