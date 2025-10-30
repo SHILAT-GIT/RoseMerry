@@ -17,6 +17,7 @@ function loadHeader() {
       <div class="header-buttons">
         <button id="loginBtn">התחברות</button>
         <button id="signupBtn">הרשמה</button>
+        <button id="logoutBtn" style="display:none;">התנתק</button>
       </div>
      </div>
 
@@ -181,26 +182,37 @@ function initPopup() {
 }
 
 function showUserName() {
-  const headerButtons = document.querySelector(".header-buttons");
+  const headerButtons=document.querySelector(".header-buttons");
   const userArea = document.querySelector(".user-area");
   const userName = localStorage.getItem("userName");
+  const loginBtn= document.getElementById("loginBtn");
+  const signinBtn= document.getElementById("signoutBtn");
+  const logoutBtn= document.getElementById("logoutBtn");
 
   if (userName) {
     // מחליפים את תוכן ה-user-area בשם ובכפתור התנתקות
     userArea.innerHTML = `
       <div class="user-greeting">שלום, ${userName} </div>
-      <button class="logout-btn" id="logoutBtn">התנתק</button>
     `;
-    // מסתירים את כפתורי ההתחברות
-    if (headerButtons) headerButtons.style.display = "none";
+    
+    // מסתיר כפתורי התחברות/הרשמה ומראה את כפתור ההתנתקות
+    if (loginBtn) loginBtn.style.display = "none";
+    if (signupBtn) signupBtn.style.display = "none";
+    if (logoutBtn) logoutBtn.style.display = "inline-block";
 
-    // מאזין להתנתקות
-    const logoutBtn = document.getElementById("logoutBtn");
+    // מאזין לכפתור התנתקות
     logoutBtn?.addEventListener("click", () => {
       localStorage.removeItem("userName");
-      // מחזירים את המצב לקדמותו
-      if (headerButtons) headerButtons.style.display = "flex";
-      if (userArea) userArea.innerHTML = "";
+      userArea.innerHTML = "";
+      if (loginBtn) loginBtn.style.display = "inline-block";
+      if (signupBtn) signupBtn.style.display = "inline-block";
+      if (logoutBtn) logoutBtn.style.display = "none";
     });
+  } else {
+    // משתמש לא מחובר
+    userArea.innerHTML = "";
+    if (loginBtn) loginBtn.style.display = "inline-block";
+    if (signupBtn) signupBtn.style.display = "inline-block";
+    if (logoutBtn) logoutBtn.style.display = "none";
   }
 }

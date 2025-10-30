@@ -84,67 +84,40 @@ body{
 }*/
 
 .header-buttons {
+   height: auto;
   position: absolute;
   left: 2vw;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  /* ריווח יחסית נעים ורספונסיבי */
   align-items: flex-start;
-  max-width: 200px;
-  /* לא יעברו את הרוחב הזה */
-  width: 6vw;
-  /* יתפסו 30% מרוחב המסך */
+  width: 150px; /* רוחב אחיד לכל הכפתורים */
   box-sizing: border-box;
-  height: 100%;
-  /* שווה לגובה של הסרגל */
-  justify-content: center;
-  padding: 1.5rem 0;
-  /* רווח עליון ותחתון */
+  padding: 1rem 0;
 }
 
-
-
-/*.header-buttons button {
-  background-color: white;
-  color: black;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  width: 100%;
-  font-weight: bold;
-  cursor: pointer;
-}*/
 .header-buttons button {
   background-color: white;
   color: black;
   border: none;
-  padding: 0.4em 0.6em;
-  /* ריווח פנימי יחסית לגודל הפונט */
+  padding: 0.6em 1em; /* מספיק גדול ומרווח */
   border-radius: 0.5em;
-  /* עיגול פינות בגובה הפונט */
-  width: 100%;
   font-weight: bold;
   font-size: 1rem;
-  /* גודל טקסט רספונסיבי */
   cursor: pointer;
-
-  flex: 1;
-  /* מתחלקים שווה בשווה בגובה של הקונטיינר */
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  white-space: nowrap;
-  box-sizing: border-box;
+  width: 100%; /* כל כפתור תופס את רוחב הקונטיינר */
+  flex: none; /* לא מתפרס לגובה */
 }
-
 
 .header-buttons button:hover {
   background-color: #fdedc5;
-  /* זהב בהיר */
 }
+
 
 /* סרגל ניווט */
 .nav-bar {
@@ -385,19 +358,6 @@ body{
 /* טקסט ברכה למשתמש */
 .user-greeting {
   color: #fff;
-  font-size: 1rem;
+  font-size: 1.5rem;
   white-space: nowrap;
-}
-/* כפתור התנתקות קטן מימין (אם נוסיף) */
-.logout-btn {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #fff;
-  padding: 0.25rem 0.5rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-.logout-btn:hover {
-  background: rgba(255,255,255,0.06);
 }
