@@ -371,3 +371,33 @@ body{
   color: #f5af36; 
   margin-bottom: 15px;
 }
+
+/* מקם את אזור המשתמש בצד ימין של הסרגל העליון */
+.user-area {
+  position: absolute;
+  right: 2vw;            /* בצד ימין */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+/* טקסט ברכה למשתמש */
+.user-greeting {
+  color: #fff;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+/* כפתור התנתקות קטן מימין (אם נוסיף) */
+.logout-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.logout-btn:hover {
+  background: rgba(255,255,255,0.06);
+}

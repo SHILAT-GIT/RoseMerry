@@ -35,7 +35,7 @@ const existingUser = await User.findOne({ email });
              });
         await newUser.save();
 
-        res.status(201).json({ message: `נרשמת בהצלחה, ${name}!` });
+        res.status(201).json({ message: `נרשמת בהצלחה, ${name}!` , name });
     }catch(err){
        res.status(500).send({ message: 'שגיאה בשרת' });
      }
@@ -51,7 +51,7 @@ try{
     const isMatch = await bcrypt.compare(password, existingUser.password);
     if (!isMatch) return res.status(400).json({ error: "סיסמה לא נכונה" });
 
-    res.json({ message: `ברוך שובך, ${existingUser.name}!` });
+    res.json({ message: `ברוך שובך, ${existingUser.name}!` , name: existingUser.name});
 
    }catch(err){
     res.status(500).send({message: 'שגיאה בשרת'});

@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadHeader();
   loadFooter();
   initPopup();
+  showUserName();
 });
 
 function loadHeader() {
@@ -17,6 +18,10 @@ function loadHeader() {
         <button id="loginBtn">התחברות</button>
         <button id="signupBtn">הרשמה</button>
       </div>
+     </div>
+
+      <!-- אזור להצגת שם המשתמש אחרי התחברות -->
+      <div class="user-area"></div>
      </div>
 
       <nav class="nav-bar">
@@ -147,7 +152,15 @@ function initPopup() {
     const data = await res.json();
     alert(data.message || data.error); // מציג הודעה מהשרת
 
-    if (res.ok) popup.style.display = "none"; // סוגר את הפופ-אפ אם הצליח
+    if (res.ok) {
+       const fallbackNameFromEmail = email ? email.split('@')[0] : null;
+        const nameToSave = data.name || username || fallbackNameFromEmail;
+        if (nameToSave) localStorage.setItem("userName", nameToSave);
+
+        showUserName(); // מעדכן את הכותרת
+        popup.style.display = "none"; // סוגר את הפופ־אפ
+        
+        }
   } catch (err) {
     alert("שגיאה בשרת, נסו שוב");
   }
@@ -165,4 +178,29 @@ function initPopup() {
   window.addEventListener("click", (e) => {
     if (e.target === popup) popup.style.display = "none";
   });
+}
+
+function showUserName() {
+  const headerButtons = document.querySelector(".header-buttons");
+  const userArea = document.querySelector(".user-area");
+  const userName = localStorage.getItem("userName");
+
+  if (userName) {
+    // מחליפים את תוכן ה-user-area בשם ובכפתור התנתקות
+    userArea.innerHTML = `
+      <div class="user-greeting">שלום, ${userName} </div>
+      <button class="logout-btn" id="logoutBtn">התנתק</button>
+    `;
+    // מסתירים את כפתורי ההתחברות
+    if (headerButtons) headerButtons.style.display = "none";
+
+    // מאזין להתנתקות
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn?.addEventListener("click", () => {
+      localStorage.removeItem("userName");
+      // מחזירים את המצב לקדמותו
+      if (headerButtons) headerButtons.style.display = "flex";
+      if (userArea) userArea.innerHTML = "";
+    });
+  }
 }
